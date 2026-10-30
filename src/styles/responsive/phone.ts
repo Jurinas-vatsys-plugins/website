@@ -31,7 +31,6 @@ export default css`
   .detail-actions { flex-direction: column; gap: 6px; }
   .detail-card { padding: 26px 22px; }
   .detail-card h2 { font-size: 24px; }
-  .markdown { font-size: 16px; }
   .file-row { align-items: flex-start; flex-direction: column; gap: 10px; }
 
   .footer-directory { grid-template-columns: 1fr 1fr; gap: 28px 20px; padding-block: 28px; }

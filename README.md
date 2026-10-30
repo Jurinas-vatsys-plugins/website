@@ -1,7 +1,7 @@
 # vatSys Plugins
 
 The website for [Jurinas-vatsys-plugins](https://github.com/Jurinas-vatsys-plugins): every plugin's
-latest release, its files and its release notes.
+latest release and its files.
 
 Nothing about the plugins is written by hand. The list comes from the vatSys plugin API
 (`https://api.jurina.org/v1/vatsys-plugins/plugins`), which checks the organization's GitHub releases
@@ -36,7 +36,6 @@ src/
   shared/          used by both the build and the browser
     api.ts         plugin API types and requests
     render.ts      HTML for plugin cards, the status line and the plugin page
-    markdown.ts    small, escaped Markdown renderer for release notes
     copy.ts        all page text
   site/            page templates (index.html, plugin.html), header, footer
   styles/          the CSS, one module per area; index.ts sets the order

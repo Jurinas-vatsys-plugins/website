@@ -1,6 +1,6 @@
 import { css } from "../../build/css.ts";
 
-/** plugin.html: one plugin's header, file list and release notes. */
+/** plugin.html: one plugin's header and file list. */
 export default css`
 .detail-main { width: min(880px, calc(100% - var(--gutter) * 2)); min-height: 60vh; padding-block: 40px 96px; display: grid; align-content: start; gap: 20px; }
 .back-link { justify-self: start; margin-bottom: -20px; }
@@ -31,5 +31,4 @@ export default css`
 .file-download .icon { width: 15px; height: 15px; }
 [data-theme="dark"] .file-download { background: rgba(41,151,255,.16); }
 [data-theme="dark"] .file-download:hover { background: rgba(41,151,255,.24); }
-.notes-link { margin-top: 20px; }
 `;

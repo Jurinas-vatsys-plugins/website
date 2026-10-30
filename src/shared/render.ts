@@ -7,7 +7,6 @@
 import { defaultAsset, type Plugin, type PluginList, type Release } from "./api.ts";
 import { copy, fill } from "./copy.ts";
 import { displayName, escapeHtml, formatDate, formatNumber, formatRelative, formatSize } from "./format.ts";
-import { renderMarkdown } from "./markdown.ts";
 import { icon } from "../site/components/icon.ts";
 
 const externalLink = (href: string) => `href="${escapeHtml(href)}" target="_blank" rel="noopener noreferrer"`;
@@ -53,7 +52,7 @@ const releasedCard = (plugin: Plugin, release: Release): string => {
   <ul class="plugin-facts">${facts}</ul>
   <div class="plugin-actions">
     ${downloadButton(release)}
-    <a class="product-link" href="${detailHref(plugin)}"><span>${copy.releaseNotes}</span>${icon("chevron")}</a>
+    <a class="product-link" href="${detailHref(plugin)}"><span>${copy.details}</span>${icon("chevron")}</a>
     <a class="product-link" ${externalLink(plugin.repo_url)}><span>${copy.github}</span>${icon("external")}</a>
   </div>
 </article>`;
@@ -144,17 +143,13 @@ export const pluginDetail = (plugin: Plugin): string => {
     ${description(plugin, "detail-description")}
     <div class="detail-actions">
       ${release ? downloadButton(release) : ""}
+      ${release ? `<a class="product-link" ${externalLink(release.url)}><span>${copy.releaseNotes}</span>${icon("external")}</a>` : ""}
       <a class="product-link" ${externalLink(plugin.repo_url)}><span>${copy.viewOnGithub}</span>${icon("external")}</a>
     </div>
   </header>`;
   if (!release) return `${hero}<section class="detail-card reveal"><p class="detail-empty">${copy.noRelease}</p></section>`;
-  const notes = renderMarkdown(release.notes ?? "");
   return `${hero}
-  <section class="detail-card reveal" aria-labelledby="files-title"><h2 id="files-title">${copy.filesTitle}</h2>${fileList(release)}${release.assets.length ? loadingTip() : ""}</section>
-  <section class="detail-card reveal" aria-labelledby="notes-title"><h2 id="notes-title">${copy.notesTitle}</h2>
-    <div class="markdown">${notes || `<p class="detail-empty">${copy.noNotes}</p>`}</div>
-    <a class="product-link notes-link" ${externalLink(release.url)}><span>${copy.viewRelease}</span>${icon("external")}</a>
-  </section>`;
+  <section class="detail-card reveal" aria-labelledby="files-title"><h2 id="files-title">${copy.filesTitle}</h2>${fileList(release)}${release.assets.length ? loadingTip() : ""}</section>`;
 };
 
 export const detailMessage = (name?: string): string => `<header class="detail-hero detail-missing">
