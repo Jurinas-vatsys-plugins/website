@@ -1,6 +1,6 @@
 import { html, label, text } from "../../build/html.ts";
 import type { PluginList } from "../../shared/api.ts";
-import { loadingCards, pluginCards, pluginCount, status, statusHtml } from "../../shared/render.ts";
+import { loadingCards, loadingTip, pluginCards, pluginCount, status, statusHtml } from "../../shared/render.ts";
 import { layout, type Assets } from "../layout.ts";
 import { snapshotScript } from "./snapshot.ts";
 
@@ -32,6 +32,7 @@ export const homePage = (assets: Assets, snapshot: PluginList | null): string =>
       <div class="plugin-grid" data-plugin-list aria-live="polite">
 ${snapshot ? pluginCards(snapshot) : loadingCards()}
       </div>
+      ${loadingTip()}
     </section>
 
   </main>

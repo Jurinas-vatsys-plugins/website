@@ -85,6 +85,18 @@ export const loadingCards = (count = 3): string =>
 export const loadError = (): string =>
   `<div class="plugins-error"><p>${copy.loadFailed}</p><button class="button button-primary" type="button" data-retry>${copy.retry}</button></div>`;
 
+/** Unblocking downloaded DLLs, from the drag-and-zoom README. Shown under the list and each plugin. */
+export const loadingTip = (): string => `<details class="tip-card">
+  <summary>${icon("alert")}<span>${copy.tipTitle}</span>${icon("chevron")}</summary>
+  <div class="tip-body">
+    <p>${copy.tipBody}</p>
+    <ol>${copy.tipSteps}</ol>
+    <p>${copy.tipZip}</p>
+    <p>${copy.tipPowershell}</p>
+    <pre><code>${escapeHtml(copy.tipCommand)}</code></pre>
+  </div>
+</details>`;
+
 /* ---------- Status line ---------- */
 
 export type StatusState = "loading" | "live" | "stale" | "offline";
@@ -138,7 +150,7 @@ export const pluginDetail = (plugin: Plugin): string => {
   if (!release) return `${hero}<section class="detail-card reveal"><p class="detail-empty">${copy.noRelease}</p></section>`;
   const notes = renderMarkdown(release.notes ?? "");
   return `${hero}
-  <section class="detail-card reveal" aria-labelledby="files-title"><h2 id="files-title">${copy.filesTitle}</h2>${fileList(release)}</section>
+  <section class="detail-card reveal" aria-labelledby="files-title"><h2 id="files-title">${copy.filesTitle}</h2>${fileList(release)}${release.assets.length ? loadingTip() : ""}</section>
   <section class="detail-card reveal" aria-labelledby="notes-title"><h2 id="notes-title">${copy.notesTitle}</h2>
     <div class="markdown">${notes || `<p class="detail-empty">${copy.noNotes}</p>`}</div>
     <a class="product-link notes-link" ${externalLink(release.url)}><span>${copy.viewRelease}</span>${icon("external")}</a>
