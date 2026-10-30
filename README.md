@@ -52,12 +52,16 @@ including ones added after the last build.
 `.github/workflows/deploy.yml` builds the site and publishes `dist/` on every push to `main`, and
 every 6 hours to refresh the baked-in snapshot.
 
-1. Push this folder to a repository in the organization, e.g. `Jurinas-vatsys-plugins.github.io`
-   (served at `https://jurinas-vatsys-plugins.github.io/`) or any other name (served at
-   `https://jurinas-vatsys-plugins.github.io/<name>/`). All links are relative, so both work.
-2. In the repository, open Settings → Pages → Build and deployment and set Source to
-   "GitHub Actions".
-3. For a custom domain, add a `public/CNAME` file containing the domain, e.g. `plugins.jurina.org`.
+The site lives at <https://vatsys.jurina.org/>, published from
+[Jurinas-vatsys-plugins/website](https://github.com/Jurinas-vatsys-plugins/website) with
+Settings → Pages → Source set to "GitHub Actions".
+
+- `public/CNAME` and the repository's Pages setting both hold the domain.
+- DNS is on Cloudflare: `vatsys` is a proxied CNAME to `jurinas-vatsys-plugins.github.io`, so
+  Cloudflare serves HTTPS (SSL/TLS mode "Full").
+- All links are relative, so the build also works under any other path or domain.
+
+Pull requests run `.github/workflows/ci.yml` (type-check and build) before they can be merged.
 
 ## Credits
 
