@@ -5,12 +5,12 @@ export default css`
 .detail-main { width: min(880px, calc(100% - var(--gutter) * 2)); min-height: 60vh; padding-block: 40px 96px; display: grid; align-content: start; gap: 20px; }
 .back-link { justify-self: start; margin-bottom: -20px; }
 .detail-hero { padding-block: 32px 28px; display: grid; justify-items: center; gap: 14px; text-align: center; }
-.plugin-icon-large { width: 112px; height: 112px; margin-bottom: 8px; border-radius: 26px; }
+.plugin-icon-large { width: 112px; height: 112px; margin-bottom: 8px; }
 .detail-hero h1 { margin: 0; font-size: clamp(40px, 6vw, 64px); font-weight: 700; line-height: 1.06; letter-spacing: -.03em; overflow-wrap: anywhere; }
 .detail-meta { margin: 0; display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 6px 14px; color: var(--muted); font-size: 15px; }
 .detail-description { max-width: 620px; margin: 0; color: var(--muted); font-size: 21px; line-height: 1.38; }
 .detail-actions { margin-top: 10px; display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 12px 26px; }
-.detail-hero.is-loading .plugin-icon { background: rgba(127,127,127,.14); filter: none; animation: skeleton 1.4s ease-in-out infinite alternate; }
+.detail-hero.is-loading .plugin-icon { border-radius: 26px; background: rgba(127,127,127,.14); filter: none; animation: skeleton 1.4s ease-in-out infinite alternate; }
 .detail-hero.is-loading .skeleton-line { width: min(360px, 80%); }
 .skeleton-line.is-title { height: 44px; border-radius: 12px; }
 .detail-missing { padding-block: 80px; }

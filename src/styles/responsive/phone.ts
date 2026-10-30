@@ -18,17 +18,15 @@ export default css`
   .product-art { width: calc(100% - 32px); height: 200px; margin-top: 24px; }
   .api-status { font-size: 13px; }
 
-  .plugins-section { padding-block: 64px 24px; }
-  .install-section { padding-block: 40px 64px; }
+  .plugins-section { padding-block: 64px 72px; }
   .section-heading { margin-bottom: 24px; }
   .section-heading h2 { font-size: clamp(34px, 10vw, 44px); }
   .plugin-card { padding: 24px 22px 18px; }
   .plugin-title h3 { font-size: 23px; }
-  .install-step { padding: 26px 24px; }
 
   .detail-main { padding-block: 24px 64px; gap: 14px; }
   .detail-hero { padding-block: 16px; }
-  .plugin-icon-large { width: 88px; height: 88px; border-radius: 21px; }
+  .plugin-icon-large { width: 88px; height: 88px; }
   .detail-description { font-size: 17px; }
   .detail-actions { flex-direction: column; gap: 6px; }
   .detail-card { padding: 26px 22px; }

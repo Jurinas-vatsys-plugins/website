@@ -12,7 +12,6 @@ import detail from "./pages/detail.ts";
 import markdown from "./pages/markdown.ts";
 import reveal from "./base/reveal.ts";
 import icons from "./base/icons.ts";
-import tablet from "./responsive/tablet.ts";
 import phone from "./responsive/phone.ts";
 import reducedMotion from "./responsive/reduced-motion.ts";
 
@@ -21,7 +20,7 @@ export const stylesheets = {
   "css/style.css": [
     fonts, tokens, reset, header, buttons, tiles,
     footer, home, pluginCards, detail, markdown, reveal, icons,
-    tablet, phone, reducedMotion,
+    phone, reducedMotion,
   ],
 } satisfies Record<string, string[]>;
 

@@ -14,7 +14,7 @@ export default css`
 .reveal-ready .plugin-card.reveal.is-visible:hover { transform: translateY(-3px); }
 .plugin-head { display: flex; align-items: center; gap: 18px; min-width: 0; }
 /* The vatSys app icon has its own shape, so it sits on the card with only a soft drop shadow. */
-.plugin-icon { display: block; width: 64px; height: 64px; flex: none; border-radius: 15px; object-fit: contain; filter: drop-shadow(0 6px 10px rgba(0,40,60,.18)); }
+.plugin-icon { display: block; width: 64px; height: 64px; flex: none; object-fit: contain; filter: drop-shadow(0 6px 10px rgba(0,40,60,.18)); }
 .plugin-title { min-width: 0; display: grid; gap: 6px; }
 .plugin-title h3 { margin: 0; font-size: 26px; font-weight: 700; line-height: 1.12; letter-spacing: -.025em; overflow-wrap: anywhere; }
 .plugin-title h3 a { transition: color .2s ease; }
@@ -32,7 +32,7 @@ export default css`
 .is-upcoming .plugin-icon { filter: grayscale(.85); opacity: .65; }
 
 .plugin-card.is-loading { gap: 14px; min-height: 260px; }
-.plugin-card.is-loading .plugin-icon { background: rgba(127,127,127,.14); filter: none; animation: skeleton 1.4s ease-in-out infinite alternate; }
+.plugin-card.is-loading .plugin-icon { border-radius: 15px; background: rgba(127,127,127,.14); filter: none; animation: skeleton 1.4s ease-in-out infinite alternate; }
 .plugin-card.is-loading .plugin-title { flex: 1; gap: 10px; }
 
 .plugins-error { grid-column: 1 / -1; padding: 48px 24px; border-radius: var(--radius-tile); display: grid; justify-items: center; gap: 18px; background: var(--surface); color: var(--muted); text-align: center; }

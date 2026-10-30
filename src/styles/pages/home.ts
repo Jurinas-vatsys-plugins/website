@@ -1,6 +1,6 @@
 import { css } from "../../build/css.ts";
 
-/** Home page: hero tile with vatSys screens and the status line, then the install steps. */
+/** Home page: hero tile with vatSys screens and the status line. */
 export default css`
 .plugins-main { padding-top: 12px; }
 .hero-tile .product-copy h1 { font-size: clamp(48px, 6.4vw, 80px); line-height: 1.04; letter-spacing: -.035em; }
@@ -38,11 +38,5 @@ export default css`
 .api-status.is-loading .icon { animation: status-spin 1.2s linear infinite; }
 @keyframes status-spin { to { transform: rotate(360deg); } }
 
-.plugins-section { padding-block: 96px 40px; }
-.install-section { padding-block: 56px 96px; }
-.install-steps { margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; list-style: none; }
-.install-step { padding: 32px 30px 34px; border-radius: 22px; background: var(--surface); box-shadow: var(--tile-shadow); }
-.step-number { width: 40px; height: 40px; margin-bottom: 28px; border-radius: 50%; display: grid; place-items: center; background: var(--button); color: #fff; font: 600 19px/1 var(--display-font); }
-.install-step h3 { margin: 0 0 8px; font-size: 24px; font-weight: 600; line-height: 1.17; letter-spacing: -.02em; }
-.install-step p { margin: 0; color: var(--muted); }
+.plugins-section { padding-block: 96px 120px; }
 `;

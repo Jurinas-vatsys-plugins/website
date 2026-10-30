@@ -8,7 +8,6 @@ export const footer = (): string => html`
       <div class="footer-column">
         <h2 ${text("footerPlugins")}</h2>
         <a href="index.html#plugins" ${text("footerAll")}</a>
-        <a href="index.html#install" ${text("footerInstall")}</a>
       </div>
       <div class="footer-column">
         <h2 ${text("footerJurina")}</h2>
