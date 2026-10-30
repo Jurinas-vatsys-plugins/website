@@ -3,8 +3,8 @@
  * `{name}` placeholders are filled in by `fill()` for text built from API data.
  */
 export const copy = {
-  brand: "vatSys Plugins", navHomepage: "Jurina's Homepage", themeLabel: "Switch color theme",
-  homeTitle: "vatSys Plugins | Jurina", pluginPageTitle: "Plugin | vatSys Plugins", pluginTitle: "{name} | vatSys Plugins",
+  brand: "Jurina's vatSys Plugins", navHomepage: "Jurina's Homepage", themeLabel: "Switch color theme",
+  homeTitle: "Jurina's vatSys Plugins", pluginPageTitle: "Plugin | Jurina's vatSys Plugins", pluginTitle: "{name} | Jurina's vatSys Plugins",
   heroEyebrow: "For VATSIM controllers", heroTitle: "Jurina's vatSys plugins.",
   heroBody: "Small plugins for the vatSys ATC client. Versions and downloads here always match the latest release on GitHub.",
   pluginsEyebrow: "Plugins", pluginsTitle: "Latest releases.",
