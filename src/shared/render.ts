@@ -101,16 +101,21 @@ export const loadingTip = (): string => `<details class="tip-card">
 export type StatusState = "loading" | "live" | "stale" | "offline";
 export type Status = { state: StatusState; text: string; title: string };
 
-/** The status pill under the hero: how fresh the list is, and whether something went wrong. */
+/**
+ * The status pill under the hero. GitHub tells the API about every release through a webhook, so
+ * a quiet day doesn't mean stale data: when nothing failed, the list is simply up to date, and the
+ * last time the API talked to GitHub goes in the tooltip.
+ */
 export const status = (list: PluginList | null, { offline = false } = {}): Status => {
   if (!list) return { state: "loading", text: copy.statusLoading, title: "" };
-  const checked = list.checked_at;
-  const title = checked ? new Date(checked).toLocaleString("en-US") : "";
-  const time = checked ? formatRelative(checked) : "";
+  // checked_at is the last full sync; last_try also covers single-repo updates from the webhook.
+  const synced = [list.checked_at, list.last_try].filter((value): value is string => Boolean(value)).sort().at(-1);
+  if (!synced) return { state: "stale", text: copy.statusNever, title: "" };
+  const title = fill(copy.statusSynced, { date: new Date(synced).toLocaleString("en-US") });
+  const time = formatRelative(synced);
   if (offline) return { state: "offline", text: fill(copy.statusOffline, { time }), title };
-  if (!checked) return { state: "stale", text: copy.statusNever, title };
   if (list.last_error) return { state: "stale", text: fill(copy.statusStale, { time }), title };
-  return { state: "live", text: fill(copy.statusChecked, { time }), title };
+  return { state: "live", text: copy.statusLive, title };
 };
 
 const statusIcons = { loading: "sync", live: "github", stale: "alert", offline: "alert" } as const;

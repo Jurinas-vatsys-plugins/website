@@ -1,9 +1,13 @@
 /*
  * The vatSys plugin API (docs: jurinas-api/docs/vatsys-plugins.md). It is public, needs no key and
- * allows CORS, so both the build and the browser call it directly. The server checks GitHub on its
- * own schedule, so calling it often costs nothing.
+ * allows CORS, so both the build and the browser call it directly. GitHub notifies the server of
+ * every release through a webhook, and requests never reach GitHub, so calling it often costs nothing.
  */
 export const apiBase = "https://api.jurina.org/v1/vatsys-plugins";
+
+/** Repositories in the organization that aren't plugins, such as this site. Lowercase. */
+const notPlugins = new Set(["website"]);
+export const isPlugin = (name: string): boolean => !notPlugins.has(name.toLowerCase());
 
 export type Asset = {
   name: string;
@@ -70,10 +74,13 @@ const getJson = async <T>(path: string, timeout = 15_000): Promise<T> => {
 export const fetchPlugins = async (): Promise<PluginList> => {
   const list = await getJson<PluginList>("/plugins");
   if (!Array.isArray(list.plugins)) throw new ApiError(500, "bad_response", "The plugin list is missing");
-  return list;
+  return { ...list, plugins: list.plugins.filter((plugin) => isPlugin(plugin.name)) };
 };
 
-export const fetchPlugin = (name: string): Promise<Plugin> => getJson<Plugin>(`/plugins/${encodeURIComponent(name)}`);
+export const fetchPlugin = async (name: string): Promise<Plugin> => {
+  if (!isPlugin(name)) throw new ApiError(404, "unknown_plugin", `${name} is not a plugin`);
+  return getJson<Plugin>(`/plugins/${encodeURIComponent(name)}`);
+};
 
 /** The release's default file, chosen the same way as the API's download link. */
 export const defaultAsset = (release: Release): Asset | undefined => {
