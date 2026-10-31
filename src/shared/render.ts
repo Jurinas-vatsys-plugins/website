@@ -17,10 +17,6 @@ export const detailHref = (plugin: Plugin): string => `plugin.html?name=${encode
 const pluginIcon = (className = "plugin-icon"): string =>
   `<img class="${className}" src="img/vatsys/vatsys-icon.png" alt="" width="256" height="256" decoding="async">`;
 
-const downloads = (count: number): string => (count === 1 ? copy.downloadsOne : fill(copy.downloadsMany, { count: formatNumber(count) }));
-
-const totalDownloads = (release: Release) => release.assets.reduce((sum, asset) => sum + asset.download_count, 0);
-
 const released = (release: Release) =>
   `<time datetime="${escapeHtml(release.published_at)}">${fill(copy.released, { date: formatDate(release.published_at) })}</time>`;
 
@@ -41,7 +37,6 @@ const releasedCard = (plugin: Plugin, release: Release): string => {
   const facts = [
     asset && `<li class="plugin-file" title="${escapeHtml(asset.name)}">${escapeHtml(asset.name)}</li>`,
     asset && `<li>${formatSize(asset.size)}</li>`,
-    `<li>${downloads(totalDownloads(release))}</li>`,
   ].filter(Boolean).join("");
   return `<article class="plugin-card reveal">
   <div class="plugin-head">${pluginIcon()}<div class="plugin-title">
@@ -130,7 +125,7 @@ const fileList = (release: Release): string => {
   const main = defaultAsset(release);
   return `<ul class="file-list">${release.assets.map((asset) => `<li class="file-row">
     <div class="file-info"><span class="file-name">${escapeHtml(asset.name)}</span>${asset === main && release.assets.length > 1 ? `<span class="pill pill-muted">${copy.defaultFile}</span>` : ""}
-      <span class="file-facts">${formatSize(asset.size)} · ${downloads(asset.download_count)}</span></div>
+      <span class="file-facts">${formatSize(asset.size)}</span></div>
     <a class="file-download" href="${escapeHtml(asset.github_url)}" aria-label="${escapeHtml(`${copy.download}: ${asset.name}`)}">${icon("download")}<span>${copy.download}</span></a>
   </li>`).join("")}</ul>`;
 };
@@ -138,7 +133,7 @@ const fileList = (release: Release): string => {
 export const pluginDetail = (plugin: Plugin): string => {
   const release = plugin.latest;
   const meta = release
-    ? `<p class="detail-meta"><span class="pill">v${escapeHtml(release.version)}</span>${released(release)}<span>${downloads(totalDownloads(release))}</span></p>`
+    ? `<p class="detail-meta"><span class="pill">v${escapeHtml(release.version)}</span>${released(release)}</p>`
     : `<p class="detail-meta"><span class="pill pill-muted">${copy.comingSoon}</span></p>`;
   const hero = `<a class="product-link back-link" href="index.html#plugins">${icon("chevron-back")}<span>${copy.backToAll}</span></a>
   <header class="detail-hero reveal">

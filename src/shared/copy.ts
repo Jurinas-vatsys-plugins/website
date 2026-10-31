@@ -18,7 +18,6 @@ export const copy = {
   download: "Download", details: "Details", releaseNotes: "Release notes", github: "GitHub", viewOnGithub: "View on GitHub",
   comingSoon: "Coming soon", noRelease: "Not released yet. Watch the repository on GitHub to hear when it is.",
   released: "Released {date}",
-  downloadsOne: "1 download", downloadsMany: "{count} downloads",
   pluginCount: "{count} plugins",
   backToAll: "All plugins", filesTitle: "Files",
   defaultFile: "Default", noFiles: "This release has no files to download.",
