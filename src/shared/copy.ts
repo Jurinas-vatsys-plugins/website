@@ -20,7 +20,7 @@ export const copy = {
   released: "Released {date}",
   pluginCount: "{count} plugins",
   backToAll: "All plugins", filesTitle: "Files",
-  defaultFile: "Default", noFiles: "This release has no files to download.",
+  defaultFile: "Default", chooseFile: "Choose a file to download",noFiles: "This release has no files to download.",
   notFoundTitle: "No plugin called “{name}”.", notFoundBody: "It may have been renamed or removed. The list has every plugin that's available now.",
   missingName: "Pick a plugin from the list.", seeAll: "See all plugins",
   tipTitle: "Plugin not loading?",
@@ -34,7 +34,7 @@ export const copy = {
   footerHomepage: "Homepage", footerProjects: "Projects",
   source: "Jurinas-vatsys-plugins on GitHub", pride: "Stands with the LGBTQIA+ community",
   primaryNavLabel: "Primary navigation", footerLabel: "Footer links",
-  transFlagLabel: "Transgender flag", rainbowFlagLabel: "Rainbow flag",
+  transFlagLabel: "Transgender flag", rainbowFlagLabel: "Rainbow flag", biFlagLabel: "Bisexual flag",
   screensAlt: "vatSys radar screens with aircraft labels, from virtualairtrafficsystem.com",
 };
 

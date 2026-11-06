@@ -82,10 +82,14 @@ export const fetchPlugin = async (name: string): Promise<Plugin> => {
   return getJson<Plugin>(`/plugins/${encodeURIComponent(name)}`);
 };
 
-/** The release's default file, chosen the same way as the API's download link. */
+/**
+ * The file the main Download button gives. Like the API's download link it prefers a .zip over a
+ * .dll, but a ready-to-run .exe comes first: the plugins manager ships one next to a smaller
+ * framework-dependent zip that needs .NET installed. The other files stay one click away.
+ */
 export const defaultAsset = (release: Release): Asset | undefined => {
   const { assets } = release;
   if (assets.length <= 1) return assets[0];
   const ext = (suffix: string) => assets.find((asset) => asset.name.toLowerCase().endsWith(suffix));
-  return ext(".zip") ?? ext(".dll") ?? assets[0];
+  return ext(".exe") ?? ext(".zip") ?? ext(".dll") ?? assets[0];
 };

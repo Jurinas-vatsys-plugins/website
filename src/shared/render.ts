@@ -24,7 +24,17 @@ const released = (release: Release) =>
 const downloadButton = (release: Release) => {
   const asset = defaultAsset(release);
   if (!asset) return `<span class="button button-disabled" aria-disabled="true">${icon("download")}<span>${copy.download}</span></span>`;
-  return `<a class="button button-primary" href="${escapeHtml(asset.github_url)}" title="${escapeHtml(asset.name)}">${icon("download")}<span>${copy.download}</span></a>`;
+  const main = `<a class="button button-primary" href="${escapeHtml(asset.github_url)}" title="${escapeHtml(asset.name)}">${icon("download")}<span>${copy.download}</span></a>`;
+  if (release.assets.length < 2) return main;
+  // Several files: the main half downloads the default, the arrow opens a menu with every file.
+  // Like a macOS pull-down menu: a check marks the default file, every row keeps room for one.
+  const options = release.assets.map((option) => `<li><a href="${escapeHtml(option.github_url)}"${option === asset ? ' aria-current="true"' : ""}>`
+    + `<span class="download-option-check">${option === asset ? icon("checkmark") : ""}</span>`
+    + `<span class="download-option-name">${escapeHtml(option.name)}</span>`
+    + `<span class="download-option-meta">${formatSize(option.size)}${option === asset ? ` · ${copy.defaultFile}` : ""}</span></a></li>`).join("");
+  return `<div class="download-group">${main}<details class="download-menu">`
+    + `<summary class="button button-primary download-toggle" aria-label="${escapeHtml(copy.chooseFile)}">${icon("chevron")}</summary>`
+    + `<ul class="download-options" aria-label="${escapeHtml(copy.chooseFile)}">${options}</ul></details></div>`;
 };
 
 const description = (plugin: Plugin, className: string) =>

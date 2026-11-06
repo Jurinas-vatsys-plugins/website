@@ -16,6 +16,7 @@ export default css`
 .icon-github { --icon: url("../img/icons/logo-github.svg"); }
 .icon-alert { --icon: url("../img/icons/alert-circle-outline.svg"); }
 .icon-sync { --icon: url("../img/icons/sync-outline.svg"); }
+.icon-checkmark { --icon: url("../img/icons/checkmark-outline.svg"); }
 /* The vatSys mark, from virtualairtrafficsystem.com. */
 .icon-vatsys { --icon: url("../img/vatsys/vatsys-mark.svg"); }
 .icon-chevron { --icon: url("../img/icons/chevron-forward-outline.svg"); width: .7em; height: .7em; vertical-align: -.02em; }

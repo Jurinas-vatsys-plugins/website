@@ -10,6 +10,7 @@ import home from "./pages/home.ts";
 import pluginCards from "./pages/plugin-cards.ts";
 import detail from "./pages/detail.ts";
 import tip from "./pages/tip.ts";
+import downloadMenu from "./pages/download-menu.ts";
 import reveal from "./base/reveal.ts";
 import icons from "./base/icons.ts";
 import phone from "./responsive/phone.ts";
@@ -19,7 +20,7 @@ export const stylesheets = {
   /** Every page. Breakpoint overrides come last so they win over the sections above them. */
   "css/style.css": [
     fonts, tokens, reset, header, buttons, tiles,
-    footer, home, pluginCards, detail, tip, reveal, icons,
+    footer, home, pluginCards, detail, tip, downloadMenu, reveal, icons,
     phone, reducedMotion,
   ],
 } satisfies Record<string, string[]>;
