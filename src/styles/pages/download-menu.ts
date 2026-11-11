@@ -8,9 +8,15 @@ import { css } from "../../build/css.ts";
 export default css`
 .download-group { position: relative; display: inline-flex; align-items: stretch; gap: 1px; }
 .download-group > .button { border-radius: 999px 0 0 999px; padding-right: 16px; }
-.plugin-actions .download-group { margin-right: 4px; }
-.plugin-actions .download-group > .button { margin-right: 0; padding-right: 14px; }
-.plugin-actions .download-toggle { margin-right: 0; padding: 0 12px 0 10px; }
+/*
+ * The split button is ~30px wider than a plain one, which pushed the last link onto a second line
+ * and made the whole grid row taller than its neighbours. Tighten the button and the gaps on
+ * those cards so the actions stay on one line at the usual card width.
+ */
+.plugin-actions:has(.download-group) { column-gap: 14px; }
+.plugin-actions .download-group { margin-right: 0; }
+.plugin-actions .download-group > .button { margin-right: 0; padding-right: 12px; }
+.plugin-actions .download-toggle { margin-right: 0; padding: 0 9px 0 8px; }
 .download-menu { display: flex; }
 .download-toggle { height: 100%; min-height: 0; padding: 0 14px 0 12px; border-radius: 0 999px 999px 0; list-style: none; cursor: pointer; user-select: none; }
 .download-toggle::-webkit-details-marker { display: none; }
