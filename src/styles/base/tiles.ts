@@ -20,10 +20,10 @@ export default css`
 
 code { padding: .12em .4em; border-radius: 6px; background: rgba(127,127,127,.13); font: .86em/1.4 var(--mono); letter-spacing: 0; overflow-wrap: anywhere; }
 
-.section-heading { margin-bottom: 36px; display: flex; align-items: flex-end; justify-content: space-between; gap: 16px 32px; flex-wrap: wrap; }
-.section-heading h2 { margin: 0; font-size: clamp(40px, 5vw, 56px); font-weight: 700; line-height: 1.07; letter-spacing: -.03em; }
+.section-heading { margin-bottom: 28px; display: flex; align-items: baseline; justify-content: space-between; gap: 16px 32px; flex-wrap: wrap; }
+.section-heading h2 { margin: 0; font-size: clamp(32px, 4vw, 44px); font-weight: 700; line-height: 1.07; letter-spacing: -.03em; }
 .section-heading .eyebrow { margin-bottom: 8px; }
-.section-count { margin: 0 0 8px; color: var(--muted); font-size: 17px; }
+.section-count { margin: 0; color: var(--muted); font-size: 17px; }
 
 .skeleton-line { display: block; height: 14px; border-radius: 7px; background: rgba(127,127,127,.14); animation: skeleton 1.4s ease-in-out infinite alternate; }
 .skeleton-line.is-short { width: 55%; }

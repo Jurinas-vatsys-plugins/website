@@ -15,13 +15,13 @@ export const pages: Record<PageId, PageMeta> = {
     id: "home",
     file: "index.html",
     titleKey: "homeTitle",
-    description: "Jurina's plugins for the vatSys ATC client: the latest releases, downloads and release notes, straight from GitHub.",
+    description: "Plugins for the vatSys ATC client by Jurina. Downloads and release notes come from GitHub.",
   },
   plugin: {
     id: "plugin",
     file: "plugin.html",
     titleKey: "pluginPageTitle",
-    description: "Latest release, files and release notes of a vatSys plugin.",
+    description: "Download and release notes for a vatSys plugin.",
   },
 };
 

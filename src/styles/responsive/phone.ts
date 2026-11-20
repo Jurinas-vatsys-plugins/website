@@ -34,7 +34,6 @@ export default css`
   .file-row { align-items: flex-start; flex-direction: column; gap: 10px; }
 
   .footer-directory { grid-template-columns: 1fr 1fr; gap: 28px 20px; padding-block: 28px; }
-  .footer-column:last-child { grid-column: 1 / -1; }
   .footer-column a { font-size: 14px; }
   .footer-top, .footer-bottom { flex-direction: column; align-items: flex-start; }
   .pride-note { flex-wrap: wrap; }

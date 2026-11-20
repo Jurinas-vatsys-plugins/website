@@ -6,10 +6,6 @@ export const footer = (): string => html`
   <footer class="site-footer shell">
     <div class="footer-directory" ${label("footerLabel")}>
       <div class="footer-column">
-        <h2 ${text("footerPlugins")}</h2>
-        <a href="index.html#plugins" ${text("footerAll")}</a>
-      </div>
-      <div class="footer-column">
         <h2 ${text("footerJurina")}</h2>
         <a ${external(links.homepage)} ${text("footerHomepage")}</a>
         <a ${external(links.projects)} ${text("footerProjects")}</a>
