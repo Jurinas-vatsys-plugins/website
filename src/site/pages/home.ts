@@ -15,7 +15,6 @@ export const homePage = (assets: Assets, snapshot: PluginList | null): string =>
     <div class="product-stack">
       <section class="product-feature product-vatsys hero-tile" aria-labelledby="hero-title">
         <div class="product-copy shell">
-          <p class="eyebrow" ${text("heroEyebrow")}</p>
           <h1 id="hero-title" ${text("heroTitle")}</h1>
           <p class="product-tagline" ${text("heroBody")}</p>
           ${statusHtml(status(snapshot))}
@@ -26,7 +25,7 @@ export const homePage = (assets: Assets, snapshot: PluginList | null): string =>
 
     <section class="plugins-section shell" id="plugins" aria-labelledby="plugins-title">
       <div class="section-heading reveal">
-        <div><p class="eyebrow" ${text("pluginsEyebrow")}</p><h2 id="plugins-title" ${text("pluginsTitle")}</h2></div>
+        <h2 id="plugins-title" ${text("pluginsTitle")}</h2>
         <p class="section-count" data-plugin-count>${snapshot ? pluginCount(snapshot) : ""}</p>
       </div>
       <div class="plugin-grid" data-plugin-list aria-live="polite">

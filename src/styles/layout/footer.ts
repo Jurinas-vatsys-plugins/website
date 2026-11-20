@@ -3,7 +3,7 @@ import { css } from "../../build/css.ts";
 /** Footer directory, source link and pride flags. */
 export default css`
 .site-footer { padding-block: 8px max(34px, env(safe-area-inset-bottom)); color: var(--muted); font-size: 12px; line-height: 1.33; letter-spacing: -.01em; }
-.footer-directory { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 48px; padding-block: 40px 36px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.footer-directory { display: grid; grid-template-columns: repeat(2, minmax(0, 220px)); gap: 64px; padding-block: 40px 36px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
 .footer-column { display: grid; align-content: start; gap: 10px; }
 .footer-column h2 { margin: 0 0 4px; color: var(--ink); font-size: 12px; font-weight: 600; }
 .footer-column a { width: fit-content; }

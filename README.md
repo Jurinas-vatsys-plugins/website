@@ -3,17 +3,17 @@
 The website for [Jurinas-vatsys-plugins](https://github.com/Jurinas-vatsys-plugins): every plugin's
 latest release and its files.
 
-Nothing about the plugins is written by hand. The list comes from the vatSys plugin API
+The plugin list isn't written by hand. It comes from the vatSys plugin API
 (`https://api.jurina.org/v1/vatsys-plugins/plugins`). GitHub notifies that API through an
 organization webhook whenever a release or repository changes, so a new release shows up here within
-seconds without touching this site. Download buttons link straight to the files on GitHub.
+seconds with no change to this site. Download buttons link straight to the files on GitHub.
 Repositories that aren't plugins (this site's `website` repo) are listed in `src/shared/api.ts` and
 hidden.
 
-- At build time, a snapshot of the list is baked into the HTML, so the page shows real content
-  right away and still works without JavaScript.
-- In the browser, the page loads the list again, refreshes it when you come back to the tab, and
-  falls back to the snapshot if it can't be reached.
+- The build bakes a snapshot of the list into the HTML, so the page has real content on load and
+  works without JavaScript.
+- In the browser, the page reloads the list, refreshes it when you return to the tab, and falls back
+  to the snapshot if the API is unreachable.
 - A plugin's description is its GitHub repository description ("About"). Fill that in on GitHub and
   it appears here.
 

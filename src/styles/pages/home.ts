@@ -3,7 +3,7 @@ import { css } from "../../build/css.ts";
 /** Home page: hero tile with vatSys screens and the status line. */
 export default css`
 .plugins-main { padding-top: 12px; }
-.hero-tile .product-copy h1 { font-size: clamp(48px, 6.4vw, 80px); line-height: 1.04; letter-spacing: -.035em; }
+.hero-tile .product-copy h1 { font-size: clamp(40px, 5vw, 60px); line-height: 1.06; letter-spacing: -.03em; }
 
 .product-vatsys { background: #eaf3fa; }
 .product-vatsys .product-copy :is(h1, h2) { color: #1d1d1f; }
@@ -28,8 +28,8 @@ export default css`
 @keyframes screen-cycle-first { 0%, 30% { opacity: 1; } 33.3%, 97% { opacity: 0; } 100% { opacity: 1; } }
 
 /* Freshness of the list: GitHub mark when checked, warning when the last check failed or we're offline. */
-.api-status { width: fit-content; max-width: 100%; margin: 0 auto; padding: 8px 16px; border-radius: 999px; display: inline-flex; align-items: center; gap: 9px; background: rgba(255,255,255,.7); color: #424245; font-size: 14px; line-height: 1.35; text-align: left; box-shadow: 0 0 0 1px rgba(0,0,0,.05); }
-[data-theme="dark"] .api-status { background: rgba(255,255,255,.07); color: #c7c7cc; box-shadow: 0 0 0 1px rgba(255,255,255,.08); }
+.api-status { width: fit-content; max-width: 100%; margin: 0 auto; display: inline-flex; align-items: center; gap: 8px; color: #6e6e73; font-size: 14px; line-height: 1.35; text-align: left; }
+[data-theme="dark"] .api-status { color: #a1a1a6; }
 .api-status .icon { width: 16px; height: 16px; }
 .api-status.is-stale .icon { color: #c93400; }
 .api-status.is-offline .icon { color: #d70015; }
@@ -38,5 +38,5 @@ export default css`
 .api-status.is-loading .icon { animation: status-spin 1.2s linear infinite; }
 @keyframes status-spin { to { transform: rotate(360deg); } }
 
-.plugins-section { padding-block: 96px 120px; }
+.plugins-section { padding-block: 72px 96px; }
 `;
